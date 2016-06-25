@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="foolApp">
+<head>
+	<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+	<script src="jquery/jquery-1.11.2.js"></script>
+	<script src="semantic/semantic.min.js"></script>
+	<script src="angular/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div class="ui container">
+		<br>
+		<div class="ui three column centered grid">
+			<div class="ten wide column">
+				<h2 class="ui header">
+					<i class="blue comment icon"></i>
+					<div class="content">
+						Story
+					</div>
+				</h2>
+				<div class="ui justified container">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum mi non metus efficitur aliquam nec vitae sem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam facilisis, lectus at vestibulum blandit, dolor justo faucibus purus, cursus luctus ante tortor luctus urna. Aliquam vel enim vel arcu euismod bibendum. Aenean gravida eu nulla convallis sollicitudin. Maecenas magna nunc, maximus a mauris vitae, imperdiet commodo ipsum. Duis pharetra lacus nulla, eget imperdiet lectus vestibulum gravida. Quisque nulla nunc, dapibus a volutpat et, varius id ex. Morbi odio ex, auctor et convallis quis, pharetra at elit. Phasellus varius posuere lacus vitae tempor. Vestibulum bibendum consequat massa dapibus pharetra. Mauris rutrum velit diam. Sed gravida lectus lacus, sed tempor felis ullamcorper et. Duis consequat odio ipsum. Integer tempor ullamcorper lectus a tincidunt.
+					</p>
+					<p>
+						Phasellus tristique nibh eget nibh fermentum hendrerit. In viverra dui ante, id sagittis leo tristique nec. Mauris posuere dolor sit amet nulla rhoncus, at suscipit nunc accumsan. Donec et nisi efficitur, efficitur lorem et, aliquam ex. Donec mollis libero neque. Phasellus commodo tristique facilisis. Nullam nec quam arcu. Vivamus a nunc pellentesque, aliquet nulla et, cursus ligula. Suspendisse eu est vitae urna ultrices congue quis id velit. Maecenas in eros laoreet, pellentesque erat et, porttitor est. Duis convallis viverra urna, nec elementum sem lobortis viverra. Aliquam pulvinar, metus nec sollicitudin elementum, quam mauris pretium diam, in vulputate ipsum lacus vitae ex. Sed sit amet sodales orci, eget pretium arcu. Donec scelerisque in sem eu lacinia. Morbi non metus dolor. Suspendisse rhoncus pretium feugiat.
+					</p>
+					<p>
+						Donec euismod eget massa quis lobortis. Suspendisse sed lorem sit amet lorem pellentesque tempus. Morbi sit amet tincidunt mauris, porta vestibulum tortor. Cras pulvinar ut metus sed finibus. Nam maximus ligula libero, sed tincidunt sapien interdum a. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus dignissim eget arcu eu accumsan. Aliquam nunc enim, tempus eget pretium et, egestas ac dui. Aenean eget velit mi. Nunc sodales, libero vitae vulputate ullamcorper, dolor nulla pulvinar enim, vel iaculis odio quam vel nisl.
+					</p>
+					<p>
+						Phasellus viverra sollicitudin aliquet. Sed dui augue, suscipit a tristique non, congue vel erat. Nam ut dui ut orci dictum egestas a non enim. Etiam vel euismod est. Vivamus pharetra eleifend ullamcorper. Vivamus porttitor neque vitae commodo sagittis. Proin non tristique tellus. In ante elit, feugiat in tempus sed, vehicula a elit. Suspendisse maximus placerat lectus in feugiat. Morbi sed fermentum felis. Sed laoreet posuere lorem, tincidunt elementum dui sagittis ut. Nullam ipsum tellus, accumsan at lacinia sit amet, vestibulum in metus.
+					</p>
+					<p>
+						Vivamus rhoncus iaculis vehicula. In nec suscipit justo. Morbi eget ultrices mi. Fusce quis malesuada enim, non pretium urna. Suspendisse semper, risus quis pretium lobortis, lorem leo feugiat purus, eu tincidunt quam erat in odio. Suspendisse quis dictum nulla. Cras arcu lectus, tincidunt ut eleifend vel, gravida a nunc. Ut sapien magna, facilisis ac pretium a, ullamcorper vel odio.
+					</p>
+				</div>
+			</div>
+			<div class="right floated column">
+				<h2 class="ui header">
+					<i class="blue users icon"></i>
+					<div class="content">
+						Friends
+					</div>
+				</h2>
+				<div class="ui form">
+					<div class="field">
+						<label>Username</label>
+						<div class="ui left icon input">
+							<input type="text" placeholder="Username">
+							<i class="user icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<label>Password</label>
+						<div class="ui left icon input">
+							<input type="password" placeholder="Password">
+							<i class="lock icon"></i>
+						</div>
+					</div>
+					<button class="ui blue submit button">Login</button>
+				</div>
+				<h2 class="ui header">
+					<i class="blue book icon"></i>
+					<div class="content">
+						Data Summary
+					</div>
+				</h2>
+				<div class="ui three statistics" ng-controller='listController'>
+					<div class="statistic">
+					<div class="value">
+						<i class="blue user icon"></i> {{peoples.length || 0}}
+					</div>
+					<div class="label">
+						People
+					</div>
+				</div>
+					<div class="statistic">
+					<div class="value">
+						<i class="blue legal icon"></i> {{phones.length || 0}}
+					</div>
+					<div class="label">
+						Religion
+					</div>
+				</div>
+				<div class="statistic">
+					<div class="value">
+						<i class="blue heterosexual icon"></i> {{genders.length || 0}}
+					</div>
+					<div class="label">
+						Gender
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
