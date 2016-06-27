@@ -66,7 +66,7 @@
 						Data Summary
 					</div>
 				</h2>
-				<div class="ui three statistics" ng-controller='listController'>
+				<div class="ui three statistics" ng-controller='summaryController'>
 					<div class="statistic">
 					<div class="value">
 						<i class="blue user icon"></i> {{peoples.length || 0}}
@@ -77,7 +77,7 @@
 				</div>
 					<div class="statistic">
 					<div class="value">
-						<i class="blue legal icon"></i> {{phones.length || 0}}
+						<i class="blue legal icon"></i> {{religionsCount || 0}}
 					</div>
 					<div class="label">
 						Religion
@@ -85,7 +85,7 @@
 				</div>
 				<div class="statistic">
 					<div class="value">
-						<i class="blue heterosexual icon"></i> {{genders.length || 0}}
+						<i class="blue heterosexual icon"></i> {{gendersCount || 0}}
 					</div>
 					<div class="label">
 						Gender
