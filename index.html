@@ -30,11 +30,20 @@
 					</a>
 					<a class="item" data-tab="third">
 						<i class="icons">
-							<i class="blue puzzle icon"></i>
+							<i class="blue legal icon"></i>
 							<i class="blue corner add icon"></i>
 						</i>
 						<div class="content">
-							Religion & Gender
+							Religion
+						</div>
+					</a>
+					<a class="item" data-tab="forth">
+						<i class="icons">
+							<i class="blue heterosexual icon"></i>
+							<i class="blue corner add icon"></i>
+						</i>
+						<div class="content">
+							Gender
 						</div>
 					</a>
 				</div>
@@ -51,7 +60,7 @@
 				<div class="ui bottom attached tab segment" data-tab="second">
 					<div class="ui two column centered grid">
 						<div class="eight wide column">
-							<form class="ui form" name="peopleForm" ng-controller="formController as formCtrl" ng-submit="formCtrl.addData()">
+							<form class="ui form" name="peopleForm" ng-controller="formController as formCtrl" ng-submit="formCtrl.addData('people')">
 								<div>
 									<div class="field">
 										<label>Fullname</label>
@@ -69,14 +78,14 @@
 									</div>
 									<div class="field">
 										<label>Religion</label>
-										<select name="religions" class="ui fluid normal dropdown" id="religions" ng-model="formCtrl.formData.religion">
+										<select name="religions" class="ui fluid normal dropdown" id="religions" ng-model="formCtrl.formData.id_religion">
 											<option value="">Religion</option>
 											<option ng-repeat="religion in religions" value='{{religion.id_religion}}'>{{religion.name}}</option>
 										</select>
 									</div>
 									<div class="field">
 										<label>Gender</label>
-										<select name="genders" class="ui fluid normal dropdown" id="genders" ng-model="formCtrl.formData.gender" value='{{formCtrl.formData.gender}}'>
+										<select name="genders" class="ui fluid normal dropdown" id="genders" ng-model="formCtrl.formData.id_gender">
 											<option value="">Gender</option>
 											<option ng-repeat="gender in genders" value='{{gender.id_gender}}'>{{gender.name}}</option>
 										</select>
@@ -88,23 +97,40 @@
 					</div>
 				</div>
 				<div class="ui bottom attached tab segment" data-tab="third">
-					<form class="ui form">
-						<div class="field">
-							<label>First Name</label>
-							<input type="text" name="first-name" placeholder="First Name">
+					<div class="ui two column centered grid">
+						<div class="eight wide column">
+							<form class="ui form" name="religionForm" ng-controller="formController as formCtrl" ng-submit="formCtrl.addData('religions')">
+								<div>
+									<div class="field">
+										<label>Religion Name</label>
+										<div class="ui left icon input">
+											<input type="text" placeholder="Religion Name" ng-model="formCtrl.formData.name">
+											<i class="legal icon"></i>
+										</div>
+									</div>
+									<button class="ui button" type="submit">Submit</button>
+								</div>
+							</form>
 						</div>
-						<div class="field">
-							<label>Last Name</label>
-							<input type="text" name="last-name" placeholder="Last Name">
+					</div>
+				</div>
+				<div class="ui bottom attached tab segment" data-tab="forth">
+					<div class="ui two column centered grid">
+						<div class="eight wide column">
+							<form class="ui form" name="settingForm" ng-controller="formController as formCtrl" ng-submit="formCtrl.addData('genders')">
+								<div>
+									<div class="field">
+										<label>Gender Name</label>
+										<div class="ui left icon input">
+											<input type="text" placeholder="Gender Name" ng-model="formCtrl.formData.name">
+											<i class="heterosexual icon"></i>
+										</div>
+									</div>
+									<button class="ui button" type="submit">Submit</button>
+								</div>
+							</form>
 						</div>
-						<div class="field">
-							<div class="ui checkbox">
-								<input type="checkbox" tabindex="0" class="hidden">
-								<label>I agree to the Terms and Conditions</label>
-							</div>
-						</div>
-						<button class="ui button" type="submit">Submit</button>
-					</form>
+					</div>
 				</div>
 
 			</div>

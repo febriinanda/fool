@@ -25,9 +25,14 @@ app.controller('formController',function formController($scope, $http){
 	});
 
 	this.formData = {};
-
-	this.addData = function(){
-		console.log(this.formData);
+	this.state = 0;
+	
+	this.addData = function(value){
+		console.log(this.formData,value);
+		$http.post('http://localhost:3000/api/'+value,this.formData).then(function(response){
+			console.log(response);
+		});
 		this.formData = {};
+		this.state = 1;
 	}
 });
