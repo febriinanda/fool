@@ -40,3 +40,15 @@ app.controller('gendersController', function gendersController($scope, $http){
 		$scope.genders = response.data;
 	});
 });
+
+app.controller('viewController', function viewController($scope, $http){
+	this.menu = "home";
+
+	this.selectMenu = function(val){
+		this.menu = val;
+	}
+
+	this.isSelected = function(val){
+		return this.menu == val;
+	}
+})

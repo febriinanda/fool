@@ -8,11 +8,149 @@
 	<script src="app.js"></script>
 </head>
 <body>
-	<div class="ui container">
+
+	<div class="ui container" ng-controller="viewController as viewCtrl">
+
 		<br>
-		<div class="ui three column centered grid">
+		<div class="ui three column grid">
+			<div class="two wide column">
+				<div class="ui left fixed vertical menu">
+					<div class="item">
+						<img class="ui mini image" src="images/logo.png">
+					</div>
+					<a class="item" ng-click='viewCtrl.selectMenu("home")' ng-class='{active:viewCtrl.isSelected("home")}'>Home</a>
+					<a id="employee" ng-click='viewCtrl.selectMenu("employee")' class="item" ng-class='{active:viewCtrl.isSelected("employee")}'>Employee</a>
+					<a id="signin" class="item">Sign-in</a>
+				</div>
+				
+			</div>
+
 			<div class="ten wide column">
-				<div class="ui top attached tabular menu">
+
+				<div ng-show='viewCtrl.isSelected("home")'>
+					<h1>Home</h1>
+					
+					<div class="ui horizontal raised segments">
+						<div class="ui segment column"><p>News feed</p></div>
+						<div class="ui segment column"><p>Employee</p></div>
+						<div class="ui segment column"><p>Others</p></div>
+					</div>
+					<div class="ui divider"></div>
+					<h3>Top Employee</h3>
+					<div class="ui four cards">
+						<div class="ui card">
+  <div class="image">
+    <img src="images/logo.png">
+  </div>
+  <div class="content">
+    <a class="header">Kristy</a>
+    <div class="meta">
+      <span class="date">Joined in 2013</span>
+    </div>
+    <div class="description">
+      Kristy is an art director living in New York.
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      22 Friends
+    </a>
+  </div>
+</div>
+
+<div class="ui card">
+  <div class="image">
+    <img src="images/logo.png">
+  </div>
+  <div class="content">
+    <a class="header">Kristy</a>
+    <div class="meta">
+      <span class="date">Joined in 2013</span>
+    </div>
+    <div class="description">
+      Kristy is an art director living in New York.
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      22 Friends
+    </a>
+  </div>
+</div>
+
+<div class="ui card">
+  <div class="image">
+    <img src="images/logo.png">
+  </div>
+  <div class="content">
+    <a class="header">Kristy</a>
+    <div class="meta">
+      <span class="date">Joined in 2013</span>
+    </div>
+    <div class="description">
+      Kristy is an art director living in New York.
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      22 Friends
+    </a>
+  </div>
+</div>
+
+<div class="ui card">
+  <div class="image">
+    <img src="images/logo.png">
+  </div>
+  <div class="content">
+    <a class="header">Kristy</a>
+    <div class="meta">
+      <span class="date">Joined in 2013</span>
+    </div>
+    <div class="description">
+      Kristy is an art director living in New York.
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      22 Friends
+    </a>
+  </div>
+</div>
+
+<div class="ui card">
+  <div class="image">
+    <img src="images/logo.png">
+  </div>
+  <div class="content">
+    <a class="header">Kristy</a>
+    <div class="meta">
+      <span class="date">Joined in 2013</span>
+    </div>
+    <div class="description">
+      Kristy is an art director living in New York.
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      22 Friends
+    </a>
+  </div>
+</div>
+					</div>
+					
+				</div>
+				<div ng-show='viewCtrl.isSelected("employee")'>
+					<h1>Employee</h1>
+				</div>
+				<div ng-show='viewCtrl.isSelected("")'>3</div>
+				<!--
+				<div ng-show='viewCtrl.isSelected("home")' class="ui top attached tabular menu">
 					<a class="item active" data-tab="first">
 						<i class="blue comment icon"></i>
 						<div class="content">
@@ -132,19 +270,19 @@
 						</div>
 					</div>
 				</div>
-
+			-->
+		</div>
+		<div class="four wide column">
+			<div class="ui top attached tabular menu ">
+				<a class="item active" data-tab="summary">
+					<i class="blue book icon"></i>
+					<div class="content">
+						Data Summary
+					</div>
+				</a>
 			</div>
-			<div class="right floated column">
-				<div class="ui top attached tabular menu ">
-					<a class="item active" data-tab="summary">
-						<i class="blue book icon"></i>
-						<div class="content">
-							Data Summary
-						</div>
-					</a>
-				</div>
-				<div class="ui bottom attached tab segment active" data-tab="summary">
-					<div class="ui ten statistics" ng-controller='summaryController'>
+			<div class="ui bottom attached tab segment active" data-tab="summary">
+				<div class="ui ten statistics" ng-controller='summaryController'>
 					<div class="statistic">
 						<div class="value">
 							<i class="blue user icon"></i> {{peopleCount || 0}}
@@ -170,11 +308,11 @@
 						</div>
 					</div>
 				</div>
-				</div>
-				
 			</div>
+
 		</div>
 	</div>
+</div>
 </body>
 </html>
 <script type="text/javascript">
