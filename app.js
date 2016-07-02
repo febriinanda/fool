@@ -2,15 +2,15 @@ var app = angular.module('foolApp',[]);
 
 app.controller('summaryController',function summaryController($scope, $http){
 	$http.get('http://localhost:3000/api/religions/count/').then(function(response){
-		$scope.religionsCount = response.data[0].count;
+		$scope.religions = response.data[0].count;
 	});
 
 	$http.get('http://localhost:3000/api/genders/count/').then(function(response){
-		$scope.gendersCount = response.data[0].count;
+		$scope.genders = response.data[0].count;
 	});
 
 	$http.get('http://localhost:3000/api/people/count/').then(function(response){
-		$scope.peopleCount = response.data[0].count;
+		$scope.people = response.data[0].count;
 	});
 	
 });
@@ -41,7 +41,7 @@ app.controller('gendersController', function gendersController($scope, $http){
 	});
 });
 
-app.controller('viewController', function viewController($scope, $http){
+app.controller('viewController', function viewController(){
 	this.menu = "home";
 
 	this.selectMenu = function(val){
@@ -51,4 +51,16 @@ app.controller('viewController', function viewController($scope, $http){
 	this.isSelected = function(val){
 		return this.menu == val;
 	}
-})
+});
+
+app.controller('modalController', function modalController(){
+	this.modal = {};
+
+	this.openModal = function(val){
+		this.modal = val;
+	}
+
+	this.isSelected = function(val){
+		return this.modal == val;
+	}
+});
