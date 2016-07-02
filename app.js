@@ -17,15 +17,24 @@ app.controller('summaryController',function summaryController($scope, $http){
 
 app.controller('formController',function formController($scope, $http){
 	this.formData = {};
-	this.state = 0;
+	$scope.state = 0;
 	
 	this.addData = function(value){
 		console.log(this.formData,value);
 		$http.post('http://localhost:3000/api/'+value,this.formData).then(function(response){
-			console.log(response);
+			console.log("data",response);
+			console.log(response.data.affectedRows,$scope.state);
+			this.formData = {};
+			if((response.data.affectedRows) && ($scope.state == 0)){
+				this.formData.id_people = response.data.insertId;
+				this.formData.notes = "recently join us!";
+				this.formData.status = 1;
+				$http.post('http://localhost:3000/api/feeds',this.formData).then(function(responseFeed){
+					console.log("feeds",responseFeed);
+					$scope.state = 1;
+				});
+			}
 		});
-		this.formData = {};
-		this.state = 1;
 	}
 });
 
@@ -63,4 +72,16 @@ app.controller('modalController', function modalController(){
 	this.isSelected = function(val){
 		return this.modal == val;
 	}
+});
+
+app.controller('peopleController', function peopleController($scope, $http){
+	$http.get('http://localhost:3000/api/people').then(function(response){
+		$scope.people = response.data;
+	});
+});
+
+app.controller('feedsController', function feedsController($scope, $http){
+	$http.get('http://localhost:3000/api/feeds').then(function(response){
+		$scope.feeds = response.data;
+	});
 });
