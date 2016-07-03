@@ -14,9 +14,14 @@
 		<br>
 		<div class="ui three column grid">
 			<div class="two wide column">
-				<div class="ui left fixed vertical menu">
+				<div class="ui left fixed inverted vertical menu">
 					<div class="item">
-						<img class="ui mini image" src="images/logo.png">
+						<h2 class="ui inverted header">
+							<i class="icons">
+								<i class="inverted heartbeat icon"></i>
+							</i>
+							HRIS
+						</h2>
 					</div>
 					<a class="item" ng-click='viewCtrl.selectMenu("home")' ng-class='{active:viewCtrl.isSelected("home")}'>Home</a>
 					<a id="employee" ng-click='viewCtrl.selectMenu("employee")' class="item" ng-class='{active:viewCtrl.isSelected("employee")}'>Employee</a>
@@ -25,7 +30,7 @@
 				
 			</div>
 
-			<div class="ten wide column">
+			<div class="twelve wide column">
 
 				<div ng-show='viewCtrl.isSelected("home")'>
 					<h1>Home</h1>
@@ -49,115 +54,45 @@
 										</div>
 									</div>
 								</div>
+								<div class="event" ng-repeat='feed in feeds'>
+									<div class="label">
+										<img src="images/logo.png">
+									</div>
+									<div class="content">
+										<div class="summary">
+											<a class="user">
+												Lil
+											</a> {{feed.notes}}
+											<div class="date">
+												{{feed.create_date | date:'short'}}
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						
 					</div>
 					<div class="ui horizontal divider header"><h3>Top Employee</h3></div>
 					
-					<div class="ui four cards">
-						<div class="ui card">
+					<div class="ui four cards" ng-controller='peopleController'>
+						<div class="ui yellow card" ng-repeat='employee in people | limitTo : 4'>
 							<div class="image">
+								<a class="ui yellow ribbon label">
+									<i class="star icon"></i>
+									{{employee.id_people}}0
+								</a>
 								<img src="images/logo.png">
 							</div>
 							<div class="content">
-								<a class="header">Kristy</a>
-								<div class="meta">
-									<span class="date">Joined in 2013</span>
-								</div>
-								<div class="description">
-									Kristy is an art director living in New York.
-								</div>
-							</div>
-							<div class="extra content">
-								<a>
-									<i class="user icon"></i>
-									22 Friends
-								</a>
-							</div>
-						</div>
 
-						<div class="ui card">
-							<div class="image">
-								<img src="images/logo.png">
-							</div>
-							<div class="content">
-								<a class="header">Kristy</a>
+								<a class="header">{{employee.nickname}}</a>
 								<div class="meta">
-									<span class="date">Joined in 2013</span>
+									<span class="date">Joined in {{employee.create_date | date:'yyyy'}}</span>
 								</div>
 								<div class="description">
-									Kristy is an art director living in New York.
+									{{employee.fullname}}
 								</div>
-							</div>
-							<div class="extra content">
-								<a>
-									<i class="user icon"></i>
-									22 Friends
-								</a>
-							</div>
-						</div>
-
-						<div class="ui card">
-							<div class="image">
-								<img src="images/logo.png">
-							</div>
-							<div class="content">
-								<a class="header">Kristy</a>
-								<div class="meta">
-									<span class="date">Joined in 2013</span>
-								</div>
-								<div class="description">
-									Kristy is an art director living in New York.
-								</div>
-							</div>
-							<div class="extra content">
-								<a>
-									<i class="user icon"></i>
-									22 Friends
-								</a>
-							</div>
-						</div>
-
-						<div class="ui card">
-							<div class="image">
-								<img src="images/logo.png">
-							</div>
-							<div class="content">
-								<a class="header">Kristy</a>
-								<div class="meta">
-									<span class="date">Joined in 2013</span>
-								</div>
-								<div class="description">
-									Kristy is an art director living in New York.
-								</div>
-							</div>
-							<div class="extra content">
-								<a>
-									<i class="user icon"></i>
-									22 Friends
-								</a>
-							</div>
-						</div>
-
-						<div class="ui card">
-							<div class="image">
-								<img src="images/logo.png">
-							</div>
-							<div class="content">
-								<a class="header">Kristy</a>
-								<div class="meta">
-									<span class="date">Joined in 2013</span>
-								</div>
-								<div class="description">
-									Kristy is an art director living in New York.
-								</div>
-							</div>
-							<div class="extra content">
-								<a>
-									<i class="user icon"></i>
-									22 Friends
-								</a>
 							</div>
 						</div>
 					</div>
@@ -180,38 +115,68 @@
 					</div>
 					<div class="ui horizontal divider clearing header">
 						<h3>List Employee</h3></div>
-					
-					<div class="ui six cards" ng-controller="peopleController">
-						<div class="ui card" ng-repeat="employee in people">
-							<div class="image">
-								<img src="images/logo.png">
-							</div>
-							<div class="content">
-								<a class="header">{{employee.nickname}}</a>
-								<div class="meta">
-									<span class="date">Joined in {{employee.create_date | date:'yyyy'}}</span>
+						
+						<div class="ui four cards" ng-controller="peopleController">
+							<div class="ui blue card">
+								<div class="image">
+									<a class="ui teal ribbon label">
+										New
+									</a>
+									<img src="images/logo.png">
 								</div>
-								<div class="description">
-									{{employee.fullname}}
+								<div class="content">
+									<a class="header">Lil</a>
+									<div class="meta">
+										<span class="date">Joined in 2016</span>
+									</div>
+									<div class="description">
+										Lilo Branch
 
+									</div>
+								</div>
+								<div class="extra content">
+									<a>
+										<i class="heterosexual icon"></i>
+										Male
+									</a>
+								</div>
+								<div class="extra content">
+									<a>
+										<i class="legal icon"></i>
+										Christian
+									</a>
 								</div>
 							</div>
-							<div class="extra content">
-								<a>
-									<i class="heterosexual icon"></i>
-									{{employee.genders}}
-								</a>
-							</div>
-							<div class="extra content">
-								<a>
-									<i class="legal icon"></i>
-									{{employee.religions}}
-								</a>
+							<div class="ui blue card" ng-repeat="employee in people">
+								<div class="image">
+									<img src="images/logo.png">
+								</div>
+								<div class="content">
+									<a class="header">{{employee.nickname}}</a>
+									<div class="meta">
+										<span class="date">Joined in {{employee.create_date | date:'yyyy'}}</span>
+									</div>
+									<div class="description">
+										{{employee.fullname}}
+
+									</div>
+								</div>
+								<div class="extra content">
+									<a>
+										<i class="heterosexual icon"></i>
+										{{employee.genders}}
+									</a>
+								</div>
+								<div class="extra content">
+									<a>
+										<i class="legal icon"></i>
+										{{employee.religions}}
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div ng-show='viewCtrl.isSelected("")'>3</div>
+					<div ng-show='viewCtrl.isSelected("")'>3</div>
 				<!--
 				<div ng-show='viewCtrl.isSelected("home")' class="ui top attached tabular menu">
 					<a class="item active" data-tab="first">
@@ -335,7 +300,7 @@
 				</div>
 			-->
 		</div>
-		<div class="four wide column">
+		<!--<div class="four wide column">
 			<div class="ui sticky">
 				<h3>Summary</h3>
 				<div class="ui stacked segments" ng-controller="summaryController as summaryCtrl">
@@ -373,8 +338,9 @@
 
 				</div>
 			</div>
-		</div>
+		-->
 	</div>
+</div>
 </div>
 <div ng-controller="formController as formCtrl">
 	<div class="ui small modal employee">
@@ -420,6 +386,9 @@
 			</div>
 		</form>
 	</div>
+</div>
+<div class="footer">
+
 </div>
 </body>
 </html>
