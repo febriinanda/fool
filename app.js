@@ -18,9 +18,14 @@ app.controller('summaryController',function summaryController($scope, $http){
 app.controller('formController',function formController($scope, $http){
 	this.formData = {};
 	$scope.state = 0;
+
+	var date = new Date();
+	var now = date.getFullYear()+"-"+getMonth(date.getMonth())+"-"+date.getDate();
 	
 	this.addData = function(value){
 		console.log(this.formData,value);
+		this.formData.status = 1;
+		this.formData.create_date = now;
 		$http.post('http://localhost:3000/api/'+value,this.formData).then(function(response){
 			console.log("data",response);
 			console.log(response.data.affectedRows,$scope.state);
@@ -29,6 +34,7 @@ app.controller('formController',function formController($scope, $http){
 				this.formData.id_people = response.data.insertId;
 				this.formData.notes = "recently join us!";
 				this.formData.status = 1;
+				this.formData.create_date = now;
 				$http.post('http://localhost:3000/api/feeds',this.formData).then(function(responseFeed){
 					console.log("feeds",responseFeed);
 					$scope.state = 1;
@@ -85,3 +91,8 @@ app.controller('feedsController', function feedsController($scope, $http){
 		$scope.feeds = response.data;
 	});
 });
+
+function getMonth(val){
+	var res = parseInt(val)+1;
+	return res;
+}
