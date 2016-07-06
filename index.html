@@ -102,38 +102,12 @@
 						<h3>List Employee</h3></div>
 						
 						<div class="ui four cards" ng-controller="peopleController">
-							<div class="ui blue card">
-								<div class="image">
-									<a class="ui teal ribbon label">
-										New
-									</a>
-									<img src="images/logo.png">
-								</div>
-								<div class="content">
-									<a class="header">Lil</a>
-									<div class="meta">
-										<span class="date">Joined in 2016</span>
-									</div>
-									<div class="description">
-										Lilo Branch
-
-									</div>
-								</div>
-								<div class="extra content">
-									<a>
-										<i class="heterosexual icon"></i>
-										Male
-									</a>
-								</div>
-								<div class="extra content">
-									<a>
-										<i class="legal icon"></i>
-										Christian
-									</a>
-								</div>
-							</div>
 							<div class="ui blue card" ng-repeat="employee in people">
 								<div class="image">
+									<!-- Label untuk karyawan yang belum 3 hari -->
+									<a ng-if="employee.days_work <= 3" class="ui teal ribbon label">
+										New
+									</a>
 									<img src="images/logo.png">
 								</div>
 								<div class="content">
