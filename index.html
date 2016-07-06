@@ -8,9 +8,7 @@
 	<script src="app.js"></script>
 </head>
 <body>
-
 	<div class="ui container" ng-controller="viewController as viewCtrl">
-
 		<br>
 		<div class="ui three column grid">
 			<div class="two wide column">
@@ -31,57 +29,17 @@
 			</div>
 
 			<div class="twelve wide column">
-
 				<div ng-show='viewCtrl.isSelected("home")'>
 					<h1>Home</h1>
-					
 					<div>
 						<div class="ui segment column">
 							<h4>News feed</h4>
-							<div class="ui feed" ng-controller='feedsController'>
-								<div class="event" ng-repeat='feed in feeds'>
-									<div class="label">
-										<img src="images/logo.png">
-									</div>
-									<div class="content">
-										<div class="summary">
-											<a class="user">
-												{{feed.fullname}}
-											</a> {{feed.notes}}
-											<div class="date">
-												{{feed.create_date | date:'short'}}
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<feeds></feeds>
 						</div>
 						
 					</div>
 					<div class="ui horizontal divider header"><h3>Top Employee</h3></div>
-					
-					<div class="ui four cards" ng-controller='peopleController'>
-						<div class="ui yellow card" ng-repeat='employee in people | limitTo : 4'>
-							<div class="image">
-								<a class="ui yellow ribbon label">
-									<i class="star icon"></i>
-									{{employee.id_people}}0
-								</a>
-								<img src="images/logo.png">
-							</div>
-							<div class="content">
-
-								<a class="header">{{employee.nickname}}</a>
-								<div class="meta">
-									<span class="date">Joined in {{employee.create_date | date:'yyyy'}}</span>
-								</div>
-								<div class="description">
-									{{employee.fullname}}
-								</div>
-							</div>
-						</div>
-					</div>
-					
+					<rating-cards></rating-cards>
 				</div>
 				<div ng-show='viewCtrl.isSelected("employee")'>
 					<h1>Employee</h1>
@@ -100,66 +58,7 @@
 					</div>
 					<div class="ui horizontal divider clearing header">
 						<h3>List Employee</h3></div>
-						
-						<div class="ui four cards" ng-controller="peopleController">
-							<div class="ui blue card">
-								<div class="image">
-									<a class="ui teal ribbon label">
-										New
-									</a>
-									<img src="images/logo.png">
-								</div>
-								<div class="content">
-									<a class="header">Lil</a>
-									<div class="meta">
-										<span class="date">Joined in 2016</span>
-									</div>
-									<div class="description">
-										Lilo Branch
-
-									</div>
-								</div>
-								<div class="extra content">
-									<a>
-										<i class="heterosexual icon"></i>
-										Male
-									</a>
-								</div>
-								<div class="extra content">
-									<a>
-										<i class="legal icon"></i>
-										Christian
-									</a>
-								</div>
-							</div>
-							<div class="ui blue card" ng-repeat="employee in people">
-								<div class="image">
-									<img src="images/logo.png">
-								</div>
-								<div class="content">
-									<a class="header">{{employee.nickname}}</a>
-									<div class="meta">
-										<span class="date">Joined in {{employee.create_date | date:'yyyy'}}</span>
-									</div>
-									<div class="description">
-										{{employee.fullname}}
-
-									</div>
-								</div>
-								<div class="extra content">
-									<a>
-										<i class="heterosexual icon"></i>
-										{{employee.genders}}
-									</a>
-								</div>
-								<div class="extra content">
-									<a>
-										<i class="legal icon"></i>
-										{{employee.religions}}
-									</a>
-								</div>
-							</div>
-						</div>
+						<employee-lists></employee-lists>
 					</div>
 					<div ng-show='viewCtrl.isSelected("")'>3</div>
 				<!--
@@ -285,45 +184,6 @@
 				</div>
 			-->
 		</div>
-		<!--<div class="four wide column">
-			<div class="ui sticky">
-				<h3>Summary</h3>
-				<div class="ui stacked segments" ng-controller="summaryController as summaryCtrl">
-					<div class="ui center aligned segment">
-						<div class="ui horizontal statistic">
-							<div class="value">
-								{{people || 0}}
-							</div>
-							<div class="label">
-								Employees
-							</div>
-						</div>
-					</div>
-					<div class="ui center aligned segment">
-						<div class="ui horizontal statistic">
-							<div class="value">
-								{{religions || 0}}
-							</div>
-							<div class="label">
-								Religions
-							</div>
-						</div>
-					</div>
-
-					<div class="ui center aligned segment">
-						<div class="ui horizontal statistic">
-							<div class="value">
-								{{genders || 0}}
-							</div>
-							<div class="label">
-								Genders
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		-->
 	</div>
 </div>
 </div>
@@ -371,9 +231,6 @@
 			</div>
 		</form>
 	</div>
-</div>
-<div class="footer">
-
 </div>
 </body>
 </html>
