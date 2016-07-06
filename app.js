@@ -92,6 +92,27 @@ app.controller('feedsController', function feedsController($scope, $http){
 	});
 });
 
+app.directive('feeds', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'components/feeds.html'
+	};
+});
+
+app.directive('ratingCards', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'components/rating-cards.html'
+	};
+});
+
+app.directive('employeeLists', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'components/employee-lists.html'
+	};
+});
+
 function getMonth(val){
 	var res = parseInt(val)+1;
 	return res;

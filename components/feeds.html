@@ -1,0 +1,17 @@
+<div class="ui feed" ng-controller='feedsController'>
+	<div class="event" ng-repeat='feed in feeds'>
+		<div class="label">
+			<img src="images/logo.png">
+		</div>
+		<div class="content">
+			<div class="summary">
+				<a class="user">
+					{{feed.fullname}}
+				</a> {{feed.notes}}
+				<div class="date">
+					{{feed.create_date | date:'short'}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
