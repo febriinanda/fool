@@ -1,20 +1,5 @@
 var app = angular.module('foolApp',[]);
 
-app.controller('summaryController',function summaryController($scope, $http){
-	$http.get('http://localhost:3000/api/religions/count/').then(function(response){
-		$scope.religions = response.data[0].count;
-	});
-
-	$http.get('http://localhost:3000/api/genders/count/').then(function(response){
-		$scope.genders = response.data[0].count;
-	});
-
-	$http.get('http://localhost:3000/api/people/count/').then(function(response){
-		$scope.people = response.data[0].count;
-	});
-	
-});
-
 app.controller('formController',function formController($scope, $http){
 	this.formData = {};
 	$scope.state = 0;
