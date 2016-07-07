@@ -10,7 +10,7 @@
 <body>
 	<div class="ui container" ng-controller="viewController as viewCtrl">
 		<br>
-		<div class="ui three column grid">
+		<div class="ui two column grid">
 			<div class="two wide column">
 				<div class="ui left fixed inverted vertical menu">
 					<div class="item">
@@ -25,9 +25,7 @@
 					<a id="employee" ng-click='viewCtrl.selectMenu("employee")' class="item" ng-class='{active:viewCtrl.isSelected("employee")}'>Employee</a>
 					<a id="signin" class="item">Sign-in</a>
 				</div>
-				
 			</div>
-
 			<div class="twelve wide column">
 				<div ng-show='viewCtrl.isSelected("home")'>
 					<h1>Home</h1>
@@ -36,212 +34,69 @@
 							<h4>News feed</h4>
 							<feeds></feeds>
 						</div>
-						
+
 					</div>
 					<div class="ui horizontal divider header"><h3>Top Employee</h3></div>
 					<rating-cards></rating-cards>
 				</div>
 				<div ng-show='viewCtrl.isSelected("employee")'>
 					<h1>Employee</h1>
-					<div class="row">
-						<div class="ui icon input">
-							<input type="text" placeholder="Search...">
-							<i class="search icon"></i>
-						</div>
-						<div>
-							<button id="addEmployee" class="ui right floated labeled icon primary button">
-								<i class="add icon"></i>
-								New
-							</button>
-							
+					<div class='ui grid'>
+						<div class="four column row">
+							<div class="left floated column">
+								<search-input></search-input>
+							</div>
+							<div class="right floated column">
+								<button id="addEmployee" class="ui right floated labeled icon primary button">
+									<i class="add icon"></i>
+									New
+								</button>
+
+							</div>
 						</div>
 					</div>
 					<div class="ui horizontal divider clearing header">
-						<h3>List Employee</h3></div>
-						<employee-lists></employee-lists>
+						<h3>List Employee</h3>
 					</div>
-					<div ng-show='viewCtrl.isSelected("")'>3</div>
-				<!--
-				<div ng-show='viewCtrl.isSelected("home")' class="ui top attached tabular menu">
-					<a class="item active" data-tab="first">
-						<i class="blue comment icon"></i>
-						<div class="content">
-							Story
-						</div>
-					</a>
-					<a class="item" data-tab="second">
-						<i class="icons">
-							<i class="blue user icon"></i>
-							<i class="blue corner add icon"></i>
-						</i>
-						<div class="content">
-							People
-						</div>
-					</a>
-					<a class="item" data-tab="third">
-						<i class="icons">
-							<i class="blue legal icon"></i>
-							<i class="blue corner add icon"></i>
-						</i>
-						<div class="content">
-							Religion
-						</div>
-					</a>
-					<a class="item" data-tab="forth">
-						<i class="icons">
-							<i class="blue heterosexual icon"></i>
-							<i class="blue corner add icon"></i>
-						</i>
-						<div class="content">
-							Gender
-						</div>
-					</a>
+					<employee-lists></employee-lists>
 				</div>
-				<div class="ui bottom attached tab segment active" data-tab="first">
-					<div class="ui justified container">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum mi non metus efficitur aliquam nec vitae sem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam facilisis, lectus at vestibulum blandit, dolor justo faucibus purus, cursus luctus ante tortor luctus urna. Aliquam vel enim vel arcu euismod bibendum. Aenean gravida eu nulla convallis sollicitudin. Maecenas magna nunc, maximus a mauris vitae, imperdiet commodo ipsum. Duis pharetra lacus nulla, eget imperdiet lectus vestibulum gravida. Quisque nulla nunc, dapibus a volutpat et, varius id ex. Morbi odio ex, auctor et convallis quis, pharetra at elit. Phasellus varius posuere lacus vitae tempor. Vestibulum bibendum consequat massa dapibus pharetra. Mauris rutrum velit diam. Sed gravida lectus lacus, sed tempor felis ullamcorper et. Duis consequat odio ipsum. Integer tempor ullamcorper lectus a tincidunt.
-						</p>
-						<p>
-							Phasellus tristique nibh eget nibh fermentum hendrerit. In viverra dui ante, id sagittis leo tristique nec. Mauris posuere dolor sit amet nulla rhoncus, at suscipit nunc accumsan. Donec et nisi efficitur, efficitur lorem et, aliquam ex. Donec mollis libero neque. Phasellus commodo tristique facilisis. Nullam nec quam arcu. Vivamus a nunc pellentesque, aliquet nulla et, cursus ligula. Suspendisse eu est vitae urna ultrices congue quis id velit. Maecenas in eros laoreet, pellentesque erat et, porttitor est. Duis convallis viverra urna, nec elementum sem lobortis viverra. Aliquam pulvinar, metus nec sollicitudin elementum, quam mauris pretium diam, in vulputate ipsum lacus vitae ex. Sed sit amet sodales orci, eget pretium arcu. Donec scelerisque in sem eu lacinia. Morbi non metus dolor. Suspendisse rhoncus pretium feugiat.
-						</p>
-					</div>
-				</div>
-				<div class="ui bottom attached tab segment" data-tab="second">
-					<div class="ui two column centered grid">
-						<div class="eight wide column">
-							<form class="ui form" name="peopleForm" ng-controller="formController as formCtrl" ng-submit="formCtrl.addData('people')">
-								<div>
-									<div class="field">
-										<label>Fullname</label>
-										<div class="ui left icon input">
-											<input type="text" placeholder="Fullname" ng-model="formCtrl.formData.fullname">
-											<i class="user icon"></i>
-										</div>
-									</div>
-									<div class="field">
-										<label>Nickname</label>
-										<div class="ui left icon input">
-											<input type="text" placeholder="Nickname" ng-model="formCtrl.formData.nickname">
-											<i class="user icon"></i>
-										</div>
-									</div>
-									<div class="field" ng-controller="religionsController">
-										<label>Religion</label>
-										<select name="religions" class="ui fluid normal dropdown" id="religions" ng-model="formCtrl.formData.id_religion">
-											<option value="">Religion</option>
-											<option ng-repeat="religion in religions" value='{{religion.id_religion}}'>{{religion.name}}</option>
-										</select>
-									</div>
-									<div class="field" ng-controller="gendersController">
-										<label>Gender</label>
-										<select name="genders" class="ui fluid normal dropdown" id="genders" ng-model="formCtrl.formData.id_gender">
-											<option value="">Gender</option>
-											<option ng-repeat="gender in genders" value='{{gender.id_gender}}'>{{gender.name}}</option>
-										</select>
-									</div>
-									<button class="ui button" type="submit">Submit</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="ui bottom attached tab segment" data-tab="third">
-					<div class="ui two column centered grid">
-						<div class="eight wide column">
-							<form class="ui form" name="religionForm" ng-controller="formController as formCtrl" ng-submit="formCtrl.addData('religions')">
-								<div>
-									<div class="field">
-										<label>Religion Name</label>
-										<div class="ui left icon input">
-											<input type="text" placeholder="Religion Name" ng-model="formCtrl.formData.name">
-											<i class="legal icon"></i>
-										</div>
-									</div>
-									<button class="ui button" type="submit">Submit</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="ui bottom attached tab segment" data-tab="forth">
-					<div class="ui two column centered grid">
-						<div class="eight wide column">
-							<form class="ui form" name="settingForm" ng-controller="formController as formCtrl" ng-submit="formCtrl.addData('genders')">
-								<div>
-									<div class="field">
-										<label>Gender Name</label>
-										<div class="ui left icon input">
-											<input type="text" placeholder="Gender Name" ng-model="formCtrl.formData.name">
-											<i class="heterosexual icon"></i>
-										</div>
-									</div>
-									<button class="ui button" type="submit">Submit</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			-->
+				<div ng-show='viewCtrl.isSelected("")'>3</div>
+			</div>
 		</div>
 	</div>
-</div>
-</div>
-<div ng-controller="formController as formCtrl">
 	<div class="ui small modal employee">
 		<div class="header">Employee</div>
 		<div class="content">
 			<form class="ui form" name="peopleForm" ng-controller="formController as formCtrl" ng-submit="formCtrl.addData('people')">
-				<div>
-					<div class="field">
-						<label>Fullname</label>
-						<div class="ui left icon input">
-							<input type="text" placeholder="Fullname" ng-model="formCtrl.formData.fullname">
-							<i class="user icon"></i>
-						</div>
+				<div class="field">
+					<label>Fullname</label>
+					<div class="ui left icon input">
+						<input type="text" placeholder="Fullname" ng-model="formCtrl.formData.fullname">
+						<i class="user icon"></i>
 					</div>
-					<div class="field">
-						<label>Nickname</label>
-						<div class="ui left icon input">
-							<input type="text" placeholder="Nickname" ng-model="formCtrl.formData.nickname">
-							<i class="user icon"></i>
-						</div>
-					</div>
-					<div class="field" ng-controller="religionsController">
-						<label>Religion</label>
-						<select name="religions" class="ui fluid normal dropdown" id="religions" ng-model="formCtrl.formData.id_religion">
-							<option value="">Religion</option>
-							<option ng-repeat="religion in religions" value='{{religion.id_religion}}'>{{religion.name}}</option>
-						</select>
-					</div>
-					<div class="field" ng-controller="gendersController">
-						<label>Gender</label>
-						<select name="genders" class="ui fluid normal dropdown" id="genders" ng-model="formCtrl.formData.id_gender">
-							<option value="">Gender</option>
-							<option ng-repeat="gender in genders" value='{{gender.id_gender}}'>{{gender.name}}</option>
-						</select>
-					</div>
-
 				</div>
-
-			</div>
-			<div class="actions">
-				<button class="ui approve button" type="submit">Submit</button>
-				<div class="ui cancel button">Cancel</div>
-			</div>
+				<div class="field">
+					<label>Nickname</label>
+					<div class="ui left icon input">
+						<input type="text" placeholder="Nickname" ng-model="formCtrl.formData.nickname">
+						<i class="user icon"></i>
+					</div>
+				</div>
+				<religions-input></religions-input>
+				<genders-input></genders-input>
+			
+		</div>
+		<div class="actions">
+			<button class="ui approve button" type="submit">Submit</button>
+			<div class="ui cancel button">Cancel</div>
+		</div>
 		</form>
 	</div>
-</div>
 </body>
 </html>
 <script type="text/javascript">
 (function(){
 	$('.menu .item').tab();
-	$('#religions').dropdown();
-	$('#genders').dropdown();
-	$('.ui.sticky').sticky({
-		context: '.ten.wide.column'
-	});
 	$('.ui.modal.employee').modal({
 		closable: false,
 		onDeny: function(){
@@ -251,7 +106,6 @@
 		onApprove: function(){
 			console.log("Approve");
 			return true;
-
 		}
 	}).modal('attach events', '#addEmployee', 'show');
 })();

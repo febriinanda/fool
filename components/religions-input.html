@@ -1,0 +1,12 @@
+<div class="field">
+	<label>Religion</label>
+	<select name="religions" class="ui fluid normal dropdown" id="religions" ng-model="formCtrl.formData.id_religion">
+		<option value="">Religion</option>
+		<option ng-repeat="religion in religions" value='{{religion.id_religion}}'>{{religion.name}}</option>
+	</select>
+</div>
+<script type="text/javascript">
+(function(){
+	$('#religions').dropdown();
+})();
+</script>

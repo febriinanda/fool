@@ -1,0 +1,12 @@
+<div class="field">
+	<label>Gender</label>
+	<select name="genders" class="ui fluid normal dropdown" id="genders" ng-model="formCtrl.formData.id_gender">
+		<option value="">Gender</option>
+		<option ng-repeat="gender in genders" value='{{gender.id_gender}}'>{{gender.name}}</option>
+	</select>
+</div>
+<script type="text/javascript">
+(function(){
+	$('#genders').dropdown();
+})();
+</script>

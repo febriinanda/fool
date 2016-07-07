@@ -44,12 +44,6 @@ app.controller('formController',function formController($scope, $http){
 	}
 });
 
-app.controller('religionsController', function religionsController($scope, $http){
-	$http.get('http://localhost:3000/api/religions').then(function(response){
-		$scope.religions = response.data;
-	});
-});
-
 app.controller('gendersController', function gendersController($scope, $http){
 	$http.get('http://localhost:3000/api/genders').then(function(response){
 		$scope.genders = response.data;
@@ -80,36 +74,75 @@ app.controller('modalController', function modalController(){
 	}
 });
 
-app.controller('peopleController', function peopleController($scope, $http){
-	$http.get('http://localhost:3000/api/people').then(function(response){
-		$scope.people = response.data;
-	});
-});
-
-app.controller('feedsController', function feedsController($scope, $http){
-	$http.get('http://localhost:3000/api/feeds').then(function(response){
-		$scope.feeds = response.data;
-	});
-});
-
 app.directive('feeds', function(){
 	return {
 		restrict: 'E',
-		templateUrl: 'components/feeds.html'
+		templateUrl: 'components/feeds.html',
+		controller: function($scope,$http){
+			$http.get('http://localhost:3000/api/feeds').then(function(response){
+				$scope.feeds = response.data;
+			});
+		},
+		controllerAs: 'feedsCtrl'
 	};
 });
 
 app.directive('ratingCards', function(){
 	return {
 		restrict: 'E',
-		templateUrl: 'components/rating-cards.html'
+		templateUrl: 'components/rating-cards.html',
+		controller: function($scope,$http){
+			$http.get('http://localhost:3000/api/people').then(function(response){
+				$scope.people = response.data;
+			});
+		},
+		controllerAs: 'peopleCtrl'
 	};
 });
 
 app.directive('employeeLists', function(){
 	return {
 		restrict: 'E',
-		templateUrl: 'components/employee-lists.html'
+		templateUrl: 'components/employee-lists.html',
+		controller: function($scope,$http){
+			$http.get('http://localhost:3000/api/people').then(function(response){
+				$scope.people = response.data;
+			});
+		},
+		controllerAs: 'peopleCtrl'
+	};
+});
+
+app.directive('searchInput', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'components/search-input.html'
+	}
+});
+
+app.directive('religionsInput', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'components/religions-input.html',
+		controller: function($scope,$http){
+			$http.get('http://localhost:3000/api/religions').then(function(response){
+				$scope.religions = response.data;
+			});
+		},
+		controllerAs: 'religionsCtrl'
+	};
+});
+
+app.directive('gendersInput', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'components/genders-input.html',
+		controller: function($scope,$http){
+			$http.get('http://localhost:3000/api/genders').then(function(response){
+				$scope.genders = response.data;
+			});
+		},
+		controllerAs: 'gendersCtrl'
 	};
 });
 
