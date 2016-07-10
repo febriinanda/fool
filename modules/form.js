@@ -30,9 +30,9 @@
 		}
 
 		function getMonth(value){
-		var res = parseInt(value)+1;
-		return res;
-	}
+			var res = parseInt(value)+1;
+			return res;
+		}
 	});
 
 	app.directive('searchInput', function(){
