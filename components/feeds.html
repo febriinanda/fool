@@ -1,5 +1,5 @@
 <div class="ui feed" ng-controller='feedsController'>
-	<div class="event" ng-repeat='feed in feeds'>
+	<div class="event" ng-repeat="feed in feeds |orderBy:'-create_date'| limitTo:4">
 		<div class="label">
 			<img src="images/logo.png">
 		</div>
