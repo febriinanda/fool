@@ -5,10 +5,11 @@
 			<a ng-if="employee.days_work <= 3" class="ui teal ribbon label">
 				New
 			</a>
-			<i ng-click="peopleCtrl.likeClick(employee)" class="right floated like icon"></i>
+			
 			<img src="images/logo.png">
 		</div>
 		<div class="content">
+			<i ng-click="peopleCtrl.likeClick(employee)" class="right floated like icon"></i>
 			<a class="header">{{employee.nickname}}</a>
 			<div class="meta">
 				<span class="date">Joined in {{employee.create_date | date:'yyyy'}}</span>
@@ -29,6 +30,7 @@
 				<i class="legal icon"></i>
 				{{employee.religions}}
 			</a>
+			
 		</div>
 	</div>
 </div>
