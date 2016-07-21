@@ -13,6 +13,10 @@
 				this.likeClick = function(val){
 					console.log("Like",val);
 				}
+
+				this.editClick = function(val){
+					console.log("Edit",val);
+				}
 			},
 			controllerAs: 'peopleCtrl'
 		};

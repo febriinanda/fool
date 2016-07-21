@@ -10,6 +10,7 @@
 		</div>
 		<div class="content">
 			<i ng-click="peopleCtrl.likeClick(employee)" class="right floated like icon"></i>
+			<i ng-click="peopleCtrl.editClick(employee)" class="right floated pencil icon"></i>
 			<a class="header">{{employee.nickname}}</a>
 			<div class="meta">
 				<span class="date">Joined in {{employee.create_date | date:'yyyy'}}</span>
