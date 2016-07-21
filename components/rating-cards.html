@@ -1,20 +1,20 @@
 <div class="ui four cards">
-	<div class="ui yellow card" ng-repeat='employee in people | limitTo : 4'>
+	<div class="ui yellow card" ng-repeat='card in rating | limitTo : 4'>
 		<div class="image">
 			<a class="ui yellow ribbon label">
 				<i class="star icon"></i>
-				{{employee.id_people}}0
+				{{card.id_people}}0
 			</a>
 			<img src="images/logo.png">
 		</div>
 		<div class="content">
 
-			<a class="header">{{employee.nickname}}</a>
+			<a class="header">{{card.nickname}}</a>
 			<div class="meta">
-				<span class="date">Joined in {{employee.create_date | date:'yyyy'}}</span>
+				<span class="date">Joined in {{card.create_date | date:'yyyy'}}</span>
 			</div>
 			<div class="description">
-				{{employee.fullname}}
+				{{card.fullname}}
 			</div>
 		</div>
 	</div>

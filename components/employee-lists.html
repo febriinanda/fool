@@ -1,16 +1,15 @@
 <div class="ui four cards">
 	<div class="ui blue raised card" ng-repeat="employee in people | filter: keyword">
-		<div class="image">
+		<div class="ui fluid image">
 			<!-- Label untuk karyawan yang belum 3 hari -->
 			<a ng-if="employee.days_work <= 3" class="ui teal ribbon label">
 				New
 			</a>
 			<i ng-click="peopleCtrl.editClick(employee)" class="right floated setting icon"></i>
-			<img src="images/logo.png">
+			<img ng-src="faces/{{employee.id_people}}.jpg">
 		</div>
 		<div class="content">
 			<i ng-click="peopleCtrl.likeClick(employee)" class="right floated like icon"></i>
-			
 			<a class="header">{{employee.nickname}}</a>
 			<div class="meta">
 				<span class="date">Joined in {{employee.create_date | date:'yyyy'}}</span>

@@ -6,8 +6,8 @@
 			restrict: 'E',
 			templateUrl: 'components/rating-cards.html',
 			controller: function($scope,$http){
-				$http.get('data/employee.json').then(function(response){
-					$scope.people = response.data;
+				$http.get('data/rating.json').then(function(response){
+					$scope.rating = response.data;
 				});
 			},
 			controllerAs: 'peopleCtrl'
