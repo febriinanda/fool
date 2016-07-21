@@ -1,5 +1,5 @@
 <div class="ui four cards">
-	<div class="ui blue raised card" ng-repeat="employee in people">
+	<div class="ui blue raised card" ng-repeat="employee in people | filter: keyword">
 		<div class="image">
 			<!-- Label untuk karyawan yang belum 3 hari -->
 			<a ng-if="employee.days_work <= 3" class="ui teal ribbon label">
