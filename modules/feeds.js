@@ -2,7 +2,7 @@
 	var app = angular.module('feeds',[]);
 	
 	app.controller('feedsController',function($scope,$http){
-		$http.get('http://localhost:3000/api/feeds').success(function(data){
+		$http.get('data/feeds.json').success(function(data){
 			$scope.feeds = data;
 		});
 	});
