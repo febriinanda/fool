@@ -47,7 +47,7 @@
 			restrict: 'E',
 			templateUrl: 'components/religions-input.html',
 			controller: function($scope,$http){
-				$http.get('http://localhost:3000/api/religions').then(function(response){
+				$http.get('data/religions.json').then(function(response){
 					$scope.religions = response.data;
 				});
 			},
@@ -60,7 +60,7 @@
 			restrict: 'E',
 			templateUrl: 'components/genders-input.html',
 			controller: function($scope,$http){
-				$http.get('http://localhost:3000/api/genders').then(function(response){
+				$http.get('data/genders.json').then(function(response){
 					$scope.genders = response.data;
 				});
 			},
