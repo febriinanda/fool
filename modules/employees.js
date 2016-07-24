@@ -1,12 +1,12 @@
 (function(){
-	var app = angular.module('employee', []);
+	var app = angular.module('employees', []);
 	
 	app.directive('employeeLists', function(){
 		return {
 			restrict: 'E',
 			templateUrl: 'components/employee-lists.html',
 			controller: function($scope,$http){
-				$http.get('data/employee.json').then(function(response){
+				$http.get('data/employees.json').then(function(response){
 					$scope.people = response.data;
 				});
 

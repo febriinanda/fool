@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('foolApp',['employee','form', 'feeds', 'rating']);
+	var app = angular.module('foolApp',['employees','form', 'feeds', 'rating']);
 
 	app.controller('viewController', function viewController(){
 		this.menu = "home";
